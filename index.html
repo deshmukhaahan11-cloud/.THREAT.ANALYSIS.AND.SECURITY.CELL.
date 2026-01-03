@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TASC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginBox" class="panel">
+  <h1>T.A.S.C</h1>
+  <p>Threat Analysis and Security Cell</p>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button onclick="login()">LOGIN</button>
+</div>
+
+<!-- ROLE -->
+<div id="roleBox" class="panel hidden">
+  <h2>SELECT ACCESS</h2>
+  <button onclick="openTASC()">TASC</button>
+  <button onclick="openAgent()">NIGHT AGENT</button>
+</div>
+
+<!-- TASC DASHBOARD -->
+<div id="tascPanel" class="hidden main">
+
+  <div class="sidebar">
+    <h3>TASC</h3>
+    <button onclick="show('topsecret')">TOP SECRET</button>
+    <button onclick="show('classified')">CLASSIFIED</button>
+    <button onclick="show('wanted')">MOST WANTED</button>
+    <button onclick="show('legal')">LEGAL</button>
+    <button onclick="show('map')">LIVE TRACK</button>
+    <button onclick="alertSystem()">🚨 ALERT</button>
+  </div>
+
+  <div class="content">
+
+    <div id="topsecret" class="section paper">
+      <div class="stamp">TOP SECRET</div>
+      <h2>TOP SECRET</h2>
+      <textarea id="tsData"></textarea>
+      <button onclick="saveData('tsData')">SAVE</button>
+    </div>
+
+    <div id="classified" class="section paper hidden">
+      <h2>CLASSIFIED DOCUMENTS</h2>
+      <textarea id="classData"></textarea>
+      <button onclick="saveData('classData')">SAVE</button>
+    </div>
+
+    <div id="wanted" class="section hidden">
+      <h2>MOST WANTED</h2>
+      <input id="wantedName" placeholder="Add name">
+      <button onclick="addWanted()">ADD</button>
+      <ul id="wantedList"></ul>
+    </div>
+
+    <div id="legal" class="section hidden">
+      <h2>LEGAL FRAMEWORK</h2>
+      <textarea></textarea>
+    </div>
+
+    <div id="map" class="section hidden">
+      <h2>LIVE TRACKING</h2>
+      <iframe src="https://maps.google.com/maps?q=India&t=&z=5&output=embed"></iframe>
+    </div>
+
+  </div>
+</div>
+
+<!-- NIGHT AGENT -->
+<div id="agentPanel" class="hidden main">
+  <div class="content terminal">
+    <h2>NIGHT AGENT TERMINAL</h2>
+    <textarea placeholder="> Enter operation code..."></textarea>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
